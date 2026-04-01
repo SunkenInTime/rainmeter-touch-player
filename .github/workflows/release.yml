@@ -187,7 +187,7 @@ jobs:
         shell: pwsh
         run: |
           $archiveName = "RetroTouchPlayer_${{ steps.version.outputs.value }}.rmskin"
-          & "./build/rmskin-builder/bin/rmskin-build" --path build/package --dir-out build/dist --title RetroTouchPlayer --version "${{ steps.version.outputs.value }}" --author SunkenInTime
+          & "./build/rmskin-builder/bin/rmskin-build" --path build/package --dir-out build/dist --title "Noro Player" --version "${{ steps.version.outputs.value }}" --author SunkenInTime
 
           if (-not (Test-Path "build/dist/$archiveName")) {
             throw "Expected archive build/dist/$archiveName was not created."
@@ -213,5 +213,5 @@ jobs:
         with:
           files: build/dist/RetroTouchPlayer.rmskin
           generate_release_notes: true
-          name: RetroTouchPlayer ${{ steps.version.outputs.tag }}
+          name: Noro Player ${{ steps.version.outputs.tag }}
           tag_name: ${{ steps.version.outputs.tag }}

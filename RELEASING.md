@@ -1,4 +1,4 @@
-# Releasing RetroTouchPlayer
+# Releasing Noro Player
 
 This skin shows an in-app `UPDATE` badge when `latest.ini` advertises a newer `VersionCode` than the installed skin.
 

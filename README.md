@@ -1,12 +1,12 @@
-# noro-player (RetroTouchPlayer)
+# Noro Player
 
-**RetroTouchPlayer** is a Rainmeter skin: a retro-styled, touch-friendly music player that shows your current track, album art, progress, and playback controls. It pairs with Windows media players through Rainmeter’s **NowPlaying** / **MediaPlayer** plugin (default player).
+**Noro Player** is a Rainmeter skin: a retro-styled, touch-friendly music player that shows your current track, album art, progress, and playback controls. It pairs with Windows media players through Rainmeter’s **NowPlaying** / **MediaPlayer** plugin (default player).
 
-This repository is the source for the packaged skin **RetroTouchPlayer**; the GitHub project is named **noro-player**.
+This repository (**[noro-player](https://github.com/SunkenInTime/noro-player)** on GitHub) contains the source; the packaged skin installs under the `RetroTouchPlayer` folder and uses the **`RetroTouchPlayer.rmskin`** installer filename.
 
 ## Preview
 
-![RetroTouchPlayer — Rainmeter music player skin](player-preview.png)
+![Noro Player — Rainmeter music player skin](player-preview.png)
 
 ## Demo
 
@@ -38,7 +38,7 @@ Direct link to the latest packaged file (same as the skin’s built-in updater):
 1. Install Rainmeter if you haven’t already.
 2. Download **`RetroTouchPlayer.rmskin`** from [Releases](https://github.com/SunkenInTime/noro-player/releases) (see above).
 3. Double-click **`RetroTouchPlayer.rmskin`** and confirm the install when Rainmeter prompts you.
-4. In the Rainmeter **Manage** window, enable **RetroTouchPlayer** under **Active skins** (or load `RetroTouchPlayer\Player.ini`).
+4. In the Rainmeter **Manage** window, enable **Noro Player** under **Active skins** (or load `RetroTouchPlayer\Player.ini`).
 
 The skin appears on the desktop; drag it where you want. Use the skin’s own controls for previous / play–pause / next. If nothing shows for title or art, ensure a supported player is running and playing (Rainmeter uses the configured “default” media session).
 
