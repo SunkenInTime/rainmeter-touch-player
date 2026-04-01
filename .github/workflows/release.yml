@@ -159,15 +159,45 @@ jobs:
           git tag $releaseTag
           git push origin $releaseTag
 
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build patched rmskin-builder
+        shell: pwsh
+        run: |
+          git clone --depth 1 --branch v2.0.3 https://github.com/2bndy5/rmskin-action.git build/rmskin-builder-src
+
+          $zipModule = "build/rmskin-builder-src/src/file_utils/zip.rs"
+          $content = Get-Content -Path $zipModule -Raw
+          $updated = $content.Replace("let _ = archive.write(&buf)?;", "archive.write_all(&buf)?;")
+
+          if ($content -eq $updated) {
+            throw "Failed to patch rmskin-builder partial write bug."
+          }
+
+          Set-Content -Path $zipModule -Value $updated -NoNewline
+          cargo install --path build/rmskin-builder-src --root build/rmskin-builder --locked --force
+
       - name: Build .rmskin package
         id: builder
-        uses: 2bndy5/rmskin-action@v2.0.3
-        with:
-          path: build/package
-          dir-out: build/dist
-          title: RetroTouchPlayer
-          version: ${{ steps.version.outputs.value }}
-          author: SunkenInTime
+        shell: pwsh
+        run: |
+          $archiveName = "RetroTouchPlayer_${{ steps.version.outputs.value }}.rmskin"
+          & "./build/rmskin-builder/bin/rmskin-build" --path build/package --dir-out build/dist --title RetroTouchPlayer --version "${{ steps.version.outputs.value }}" --author SunkenInTime
+
+          if (-not (Test-Path "build/dist/$archiveName")) {
+            throw "Expected archive build/dist/$archiveName was not created."
+          }
+
+          "arc_name=$archiveName" >> $env:GITHUB_OUTPUT
+
+      - name: Verify packaged font integrity
+        shell: pwsh
+        run: |
+          $packageFont = "build/package/Skins/RetroTouchPlayer/@Resources/Fonts/CozetteVector.ttf"
+          $archivePath = "build/dist/${{ steps.builder.outputs.arc_name }}"
+
+          python -c "import hashlib, sys, zipfile; archive_path, package_font = sys.argv[1:3]; entry_name = 'Skins/RetroTouchPlayer/@Resources/Fonts/CozetteVector.ttf'; packaged_font = open(package_font, 'rb').read(); archive_font = zipfile.ZipFile(archive_path).read(entry_name); packaged_hash = hashlib.sha256(packaged_font).hexdigest(); archive_hash = hashlib.sha256(archive_font).hexdigest(); print(f'packaged source sha256={packaged_hash}'); print(f'archive entry sha256={archive_hash}'); sys.exit(0 if packaged_hash == archive_hash else 1)" $archivePath $packageFont
 
       - name: Normalize release asset name
         shell: pwsh
