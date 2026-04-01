@@ -81,9 +81,12 @@ GrilleDotTint=0,0,0,165
 ButtonFill=26,26,26,255
 ButtonCenterFill=26,26,26,255
 ButtonStroke=10,10,10,255
+; Normal: inset 0 1px 2px rgba(255,255,255,.05) — top edge + softer side spread from blur
 ButtonHighlightEdge=255,255,255,13
-ButtonHighlightSide=255,255,255,5
-ButtonShadowEdge=0,0,0,12
+ButtonHighlightSide=255,255,255,7
+; Pressed: inset 0 2px 4px rgba(0,0,0,.3) — dark shadow flips the highlight
+ButtonPressedEdge=0,0,0,77
+ButtonPressedSide=0,0,0,38
 
 ButtonPressedFill=20,20,20,255
 IconPressedColor=182,182,182,255
@@ -93,3 +96,9 @@ NextBtnFill=26,26,26,255
 PrevIconFill=208,208,208,255
 PlayIconFill=208,208,208,255
 NextIconFill=208,208,208,255
+PrevEdgeColor=255,255,255,13
+PrevSideColor=255,255,255,7
+PlayEdgeColor=255,255,255,13
+PlaySideColor=255,255,255,7
+NextEdgeColor=255,255,255,13
+NextSideColor=255,255,255,7
