@@ -21,10 +21,13 @@ ScreenHeight=188
 ScreenRadiusTop=36
 ScreenRadiusBottom=4
 
-; Track title: centered on bottom overlay row (ScreenMask coords; matches reference-website)
-TitleAreaX=156
+; Track title: ScreenMask coords; X/W derived in Player.ini from gap between elapsed + clock.
 TitleAreaY=170
-TitleAreaWidth=288
+; ClipString=1: single line only; truncate with ... at computed width.
+TitleAreaHeight=20
+; Must match [ElapsedTime] W and [ClockMeter] W (skin coords; used to size title gap).
+ElapsedMeterW=72
+ClockMeterW=88
 
 ; Bottom overlay row: tighter to progress bar (less bottom padding than reference 14px)
 InfoY=184
