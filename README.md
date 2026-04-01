@@ -10,9 +10,9 @@ This repository (**[noro-player](https://github.com/SunkenInTime/noro-player)** 
 
 ## Demo
 
-<video src="https://raw.githubusercontent.com/SunkenInTime/noro-player/master/noro-demo.mp4" controls width="100%" poster="https://raw.githubusercontent.com/SunkenInTime/noro-player/master/player-preview.png"></video>
+[![Watch the demo video](player-preview.png)](https://github.com/SunkenInTime/noro-player/blob/master/noro-demo.mp4)
 
-If the video does not play inline (for example before these files are on the default branch), open [`noro-demo.mp4`](noro-demo.mp4) locally or from the repo file list.
+Click the preview to watch in your browser on GitHub, or open [`noro-demo.mp4`](noro-demo.mp4) locally.
 
 ## Download (releases)
 
