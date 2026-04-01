@@ -10,9 +10,9 @@ This repository (**[noro-player](https://github.com/SunkenInTime/noro-player)** 
 
 ## Demo
 
-[![Watch the demo video](player-preview.png)](https://github.com/SunkenInTime/noro-player/blob/master/noro-demo.mp4)
+![Noro Player demo](noro-demo.gif)
 
-Click the preview to watch in your browser on GitHub, or open [`noro-demo.mp4`](noro-demo.mp4) locally.
+With sound: [`noro-demo.mp4`](noro-demo.mp4)
 
 ## Download (releases)
 
