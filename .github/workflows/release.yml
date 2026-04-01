@@ -186,14 +186,14 @@ jobs:
         id: builder
         shell: pwsh
         run: |
-          $archiveName = "NoroPlayer_${{ steps.version.outputs.value }}.rmskin"
           & "./build/rmskin-builder/bin/rmskin-build" --path build/package --dir-out build/dist --title "Noro Player" --version "${{ steps.version.outputs.value }}" --author SunkenInTime
 
-          if (-not (Test-Path "build/dist/$archiveName")) {
-            throw "Expected archive build/dist/$archiveName was not created."
+          $archives = Get-ChildItem -Path "build/dist/*.rmskin" -File
+          if ($archives.Count -ne 1) {
+            throw "Expected exactly one archive in build/dist, found $($archives.Count)."
           }
 
-          "arc_name=$archiveName" >> $env:GITHUB_OUTPUT
+          "arc_name=$($archives[0].Name)" >> $env:GITHUB_OUTPUT
 
       - name: Verify packaged font integrity
         shell: pwsh
