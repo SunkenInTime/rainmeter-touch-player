@@ -1,6 +1,7 @@
 [Variables]
 PlayerPlugin=MediaPlayer
 PlayerName=Default
+PlayingDotAlpha=200
 
 DisplayFont=Geist Mono
 ; Icons match reference-website/index.html SVGs (24 viewBox, scaled to IconSize)
@@ -28,9 +29,13 @@ TitleAreaWidth=288
 ; Bottom overlay row: aligned with reference padding (~14px from screen bottom)
 InfoY=180
 ElapsedX=26
-; Status label + record dot: top-right of screen (skin coords; same right edge as clock)
+; Status text (PAUSED/STANDBY): aligns with clock row; record dot uses RecordDot* below
 StatusTopY=42
 ClockX=314
+; Record dot: inset from screen top-right (larger = further from corner, toward center)
+RecordDotInsetX=24
+RecordDotInsetY=22
+RecordDotSize=10
 
 ProgressHeight=3
 
