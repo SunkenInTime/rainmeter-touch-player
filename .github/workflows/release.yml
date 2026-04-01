@@ -176,7 +176,11 @@ jobs:
           }
 
           Set-Content -Path $zipModule -Value $updated -NoNewline
-          cargo install --path build/rmskin-builder-src --root build/rmskin-builder --locked --force
+          cargo install --path build/rmskin-builder-src --root build/rmskin-builder --features bin --locked --force
+
+          if (-not (Test-Path "build/rmskin-builder/bin/rmskin-build")) {
+            throw "Expected rmskin-build binary was not installed to build/rmskin-builder/bin/rmskin-build."
+          }
 
       - name: Build .rmskin package
         id: builder
