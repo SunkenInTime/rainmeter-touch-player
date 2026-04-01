@@ -2,8 +2,8 @@
 PlayerPlugin=MediaPlayer
 PlayerName=Default
 PlayingDotAlpha=200
-SkinVersionCode=10300
-SkinVersionLabel=1.3.0
+SkinVersionCode=10301
+SkinVersionLabel=1.3.1
 UpdateManifestUrl=https://raw.githubusercontent.com/SunkenInTime/noro-player/master/latest.ini
 LatestDownloadUrl=https://github.com/SunkenInTime/noro-player/releases/latest/download/NoroPlayer.rmskin
 
